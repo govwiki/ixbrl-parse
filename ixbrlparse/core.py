@@ -15,7 +15,7 @@ class IXBRLParser:
         self.errors = []
 
     def _get_schema(self):
-        self.schema = self.soup.find(["link:schemaRef", "schemaRef"]).get("xlink:href")
+        self.schema = self.soup.find(["link:schemaRef", "schemaRef", "link:schemaref", "schemaref"]).get("xlink:href")
         self.namespaces = {}
         for k in self.soup.find(self.root_element).attrs:
             if k.startswith("xmlns") or ":" in k:
